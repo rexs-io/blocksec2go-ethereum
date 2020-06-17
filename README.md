@@ -2,6 +2,8 @@
 
 This repository contains the source code of `blocksec2go-ethereum` Python package which wraps the `blocksec2go` package to allow easier interaction with Ethereum blockchain.
 
+__Read more about rationale behind this package [on our blog post](https://link.medium.com/HPJLdyKpd7)__
+
 If you're unsure what Blockchain Security 2 Go is, [you can find more info here](https://github.com/Infineon/Blockchain).
 
 ## Installation
