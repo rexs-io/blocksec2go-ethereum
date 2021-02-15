@@ -16,6 +16,7 @@ pip install blocksec2go-ethereum
 
 After creating an instance of `Blocksec2Go` you can use it to generate signatures for transaction dicts. When passed raw tx, `sign_transaction()` will return a hex string of RLP-encoded signed transaction that can be directly consumed by `web3.eth.sendRawTransaction()`.
 
+The replay attack protection introduced with [EIP-155](https://eips.ethereum.org/EIPS/eip-155) is used by default. Set `chain_id=None` to force the legacy behaviour for backward compatibility.
 ### Transfer Ether
 
 Below you will find an example of signing a simple Ether transfer:

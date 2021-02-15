@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Tuple, Optional
 
 import ecdsa
 from eth_typing import ChecksumAddress
@@ -34,6 +34,9 @@ def address_from_public_key(public_key: bytes) -> ChecksumAddress:
     return Web3.toChecksumAddress(address)
 
 
-def get_v(sig: UnrecoverableSignature, tx_hash: bytes, pub_key: bytes, chain_id: int) -> int:
+def get_v(sig: UnrecoverableSignature, tx_hash: bytes, pub_key: bytes, chain_id: Optional[int]) -> int:
     recovery_id = find_recovery_id(sig, tx_hash, pub_key)
+
+    if not chain_id:
+        return 27 + recovery_id
     return 35 + recovery_id + (chain_id * 2)

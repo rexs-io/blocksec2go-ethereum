@@ -28,3 +28,9 @@ def test_address_from_public_key():
 def test_get_v():
     returned_v = get_v(test_unrecoverable_signature, test_tx_hash, test_pub_key, test_chain_id)
     assert test_signature[0] == returned_v
+
+
+def test_get_v_legacy():
+    returned_v = get_v(test_unrecoverable_signature, test_tx_hash, test_pub_key, None)
+    legacy_v = test_signature[0] - (2 * test_chain_id) - 35 + 27
+    assert legacy_v == returned_v
