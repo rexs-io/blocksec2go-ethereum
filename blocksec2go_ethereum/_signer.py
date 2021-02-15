@@ -1,6 +1,6 @@
 import logging
 import time
-from typing import Tuple
+from typing import Tuple, Optional
 
 import blocksec2go
 from blocksec2go.comm.pyscard import open_pyscard
@@ -18,7 +18,7 @@ Signature = Tuple[int, int, int]
 
 
 class Blocksec2GoSigner:
-    def __init__(self, key_id: int = 1, chain_id: int = 1, connect_retry_count: int = 5):
+    def __init__(self, key_id: int = 1, chain_id: Optional[int] = 1, connect_retry_count: int = 5):
         self._key_id = key_id
         self._chain_id = chain_id
         self._connect_retry_count = connect_retry_count
